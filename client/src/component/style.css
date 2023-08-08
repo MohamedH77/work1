@@ -1,0 +1,6 @@
+/* Sidebar.css */
+.Sidebar-bg {
+    background-color: hsla(0, 46%, 49%, 0.606); /* Adjust the transparency level (0.6 in this example) */
+    backdrop-filter: blur(14px); /* Apply the blur effect */
+  }
+  

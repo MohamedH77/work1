@@ -24,7 +24,9 @@
 .App-navbar {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+  height: 25em;
+
 
 
 }
