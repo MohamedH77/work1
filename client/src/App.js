@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
+import { useState } from "react";
+import { ChakraProvider, CSSReset, Box, Button } from "@chakra-ui/react";
+import Sidebar from "./component/Sidebar";
+import MenuIcon from "./component/MenuIcon";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <navbar className="App-navbar">
+        <ChakraProvider>
+          <CSSReset />
+          <Box>
+            <Button colorScheme="blue" onClick={toggleSidebar}>
+              <MenuIcon />
+            </Button>
+            <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+          </Box>
+        </ChakraProvider>
+      </navbar>
+
+
+
+
+
+
     </div>
   );
 }
