@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Drawer,
@@ -6,9 +7,9 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerCloseButton,
-  Link,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
-import "./style.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
@@ -18,17 +19,29 @@ const Sidebar = ({ isOpen, onClose }) => {
         <DrawerCloseButton
           DrawerCloseButton
           position="absolute"
-          top={.1}
-          left={.1}
+          top={0.1}
+          left={0.1}
         />
-        <DrawerHeader  >Menu</DrawerHeader>
-        <DrawerBody className="Sidebar-bg" position="relative" overflow="hidden" >
-
+        <DrawerHeader>Menu</DrawerHeader>
+        <DrawerBody
+          className="Sidebar-bg"
+          position="relative"
+          overflow="hidden"
+        >
           <Box>
-            <Link href="/about">About Me</Link>
+            <ChakraLink as={NavLink} to="/" exact>
+              Home
+            </ChakraLink>
           </Box>
-          <Box mt={4} >
-            <Link href="/contacts">Contacts</Link>
+          <Box mt={4}>
+            <ChakraLink as={NavLink} to="/about">
+              About Me
+            </ChakraLink>
+          </Box>
+          <Box mt={4}>
+            <ChakraLink as={NavLink} to="/contact">
+              Contact
+            </ChakraLink>
           </Box>
         </DrawerBody>
       </DrawerContent>

@@ -5,7 +5,7 @@ const thumbnails = [
   { imageUrl: "https://picsum.photos/150/150", link: "https://example.com/page1" },
   // { imageUrl: "https://picsum.photos/150/150", link: "https://example.com/page2" },
   // { imageUrl: "https://picsum.photos/150/150", link: "https://example.com/page3" },
-  // Add more thumbnails as needed
+
 ];
 
 const ThumbnailSection = ({ isOpen }) => {
@@ -13,10 +13,10 @@ const ThumbnailSection = ({ isOpen }) => {
     <div
       style={{
         position: "fixed",
-        bottom: isOpen ? "0" : "-100px",
+        bottom: isOpen ? "0" : "-400px",
         right: 0,
         width: "100%",
-        height: "240px", // Adjust the height of the thumbnail section
+        height: "290px", // Adjust the height of the thumbnail section
         background: "#fff",
         transition: "bottom 0.4s",
         display: "flex",

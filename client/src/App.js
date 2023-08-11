@@ -1,17 +1,14 @@
-// import logo from './logo.svg';
-import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ChakraProvider, CSSReset, Box, Button } from "@chakra-ui/react";
 import Sidebar from "./component/Sidebar";
 import MenuIcon from "./component/MenuIcon";
 import PlusIcon from "./component/PlusIcon";
 import ThumbnailSection from "./component/ThumbnailSection";
-
+import { LandingPage, Contact, Aboutme } from "./pages";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 function App() {
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isThumbnailSectionOpen, setIsThumbnailSectionOpen] = useState(false);
 
@@ -24,8 +21,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <navbar className="App-navbar">
+    <Router>
+      <div className="App">
         <ChakraProvider>
           <CSSReset />
           <Box>
@@ -35,13 +32,21 @@ function App() {
             <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
           </Box>
         </ChakraProvider>
-      </navbar>
-      {/* Plus Icon */}
-      <PlusIcon onClick={toggleThumbnailSection} />
-      
-      {/* Thumbnail Section */}
-      <ThumbnailSection isOpen={isThumbnailSectionOpen} />
-    </div>
+
+        {/* Plus Icon */}
+        <PlusIcon onClick={toggleThumbnailSection} />
+
+        {/* Thumbnail Section */}
+        <ThumbnailSection isOpen={isThumbnailSectionOpen} />
+
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<Aboutme />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
