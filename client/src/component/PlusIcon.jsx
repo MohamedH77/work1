@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import ThumbnailSection from "./ThumbnailSection";
 
-const PlusIcon = ({ onClick }) => {
+const PlusIcon = () => {
+  const [isThumbnailSectionOpen, setIsThumbnailSectionOpen] = useState(false);
+
+  const toggleThumbnailSection = () => {
+    setIsThumbnailSectionOpen(!isThumbnailSectionOpen);
+  };
+
   return (
-    <div
-      onClick={onClick}
-      style={{
-        position: "fixed",
-        bottom: "50%",
-        right: "10px",
-        transform: "translateY(50%)",
-        cursor: "pointer",
-      }}
-    >
-      <FaPlus size={24} />
+    <div>
+      <div
+        onClick={toggleThumbnailSection}
+        style={{
+          position: "fixed",
+          bottom: "50%",
+          right: "10px",
+          transform: "translateY(50%)",
+          cursor: "pointer",
+        }}
+      >
+        <FaPlus size={24} />
+      </div>
+      <ThumbnailSection isOpen={isThumbnailSectionOpen} />
     </div>
   );
 };

@@ -41,14 +41,6 @@ function App() {
       
       {/* Thumbnail Section */}
       <ThumbnailSection isOpen={isThumbnailSectionOpen} />
-
-
-
-
-
-
-
-
     </div>
   );
 }
